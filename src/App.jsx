@@ -1,12 +1,18 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom' 
+import { Login } from "./components/Login";
 
 function App() {
   return (
     <div className="App">
-      <div className="display-1">Learn React</div>
-      <i class="bi bi-android2"></i>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login/>}/>
+          <Route />
+        </Routes>
+      </Router>
     </div>
   );
 }
