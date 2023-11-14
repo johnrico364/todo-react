@@ -1,0 +1,28 @@
+.todo-container {
+  margin-top: 5vh;
+  height: 85vh;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+}
+.task-container{
+    height: 78vh;
+}
+.btn-add-task{
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+.btn-logout{
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}

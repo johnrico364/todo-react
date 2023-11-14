@@ -17,4 +17,14 @@
 .create-title{
     font-size: 35px;
     font-family: monospace;
+    font-weight: bold;
+    color: rgb(48, 240, 86);
+}
+.btn-signup{
+    background-color: rgb(48, 240, 86);
+    border-radius: 10px;
+    border: 0;
+    height: 50px;
+    width: 100px;
+    color: gray
 }
