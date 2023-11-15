@@ -17,9 +17,21 @@ function App() {
 
   const [userData, setUserData] = useState({});
 
+  const [updateTitle, setUpdateTitle] = useState("");
+  const [updateId, setUpdateId] = useState("");
+
   return (
     <div className="App">
-      <AppContext.Provider value={{ userData, setUserData }}>
+      <AppContext.Provider
+        value={{
+          userData,
+          setUserData,
+          updateTitle,
+          setUpdateTitle,
+          updateId,
+          setUpdateId,
+        }}
+      >
         <QueryClientProvider client={client}>
           <Router>
             <Routes>

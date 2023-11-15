@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { userData } = useContext(AppContext);
+  const { userData, setUpdateId, setUpdateTitle } = useContext(AppContext);
 
   const getTodoAPI = async () => {
     try {
@@ -26,6 +26,12 @@ export const Home = () => {
     queryFn: getTodoAPI,
   });
 
+  const toUpdate = (todoId, title) =>{
+    setUpdateId(todoId);
+    setUpdateTitle(title);
+    navigate("/update")
+  }
+
   return (
     <div className="container-fluid" style={{ height: "100vh" }}>
       <div className="row justify-content-center ">
@@ -36,7 +42,7 @@ export const Home = () => {
               {data.data?.map((d) => {
                 return (
                   <div className="row justify-content-center">
-                    <div className="todo-task col-10">{d.title}</div>
+                    <div className="todo-task col-10" onClick={() => toUpdate(d.todo_id, d.title)}>{d.title}</div>
                     <div className="col-1 pt-3">
                       <i className="task-checkbox bi bi-clipboard2-check"></i>
                     </div>
