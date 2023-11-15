@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "../css/Add.css";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../App";
+import axios from "axios";
 
 export const Add = () => {
   const navigate = useNavigate();
@@ -11,18 +12,28 @@ export const Add = () => {
 
   const [response, setResponse] = useState("");
 
-  const adddTodoAPI = () => {
+  const adddTodoAPI = async (newTodo) => {
     try {
+      await axios.post(
+        "https://apex.oracle.com/pls/apex/jao_workspace/todo/todo",
+        newTodo
+      );
+      return true;
     } catch (err) {
-      console.log(err);
+      setResponse(err.response.data.message);
+      return;
     }
   };
 
-  const handleAddtodo = () => {
+  const handleAddtodo = async () => {
     const todo = {
       title: title,
-      createdBy: userData.account_id,
+      createdBy: userData?.account_id,
     };
+
+    const status = await adddTodoAPI(todo);
+
+    status && navigate("/home");
   };
 
   return (
@@ -32,8 +43,10 @@ export const Add = () => {
           <div className="add-container text-center ">
             <div className="add-task-container overflow-auto">
               <p>ID: {userData.account_id}</p>
+
               <div className="row justify-content-center ">
                 <div className="col-7 mt-4 ">
+                  <p className="text-danger fw-bold">{response}</p>
                   <input
                     className="add-input w-100"
                     type="text"
@@ -42,7 +55,9 @@ export const Add = () => {
                   />
                 </div>
                 <div className="col-7 mt-4">
-                  <button className="btn-add w-100">Add</button>
+                  <button className="btn-add w-100" onClick={handleAddtodo}>
+                    Add
+                  </button>
                 </div>
               </div>
             </div>

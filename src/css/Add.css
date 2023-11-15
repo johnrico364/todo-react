@@ -29,10 +29,10 @@
   box-shadow: 0px 0px 10px 3px rgb(48, 240, 86);
 }
 .btn-add {
-  background-color: rgb(48, 240, 86);
+  background-color: rgb(139, 87, 42);
   border-radius: 10px;
   border: 0;
   height: 50px;
   width: 100px;
-  color: rgb(53, 42, 42);
+  color: white;
 }

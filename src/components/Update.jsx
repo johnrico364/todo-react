@@ -15,10 +15,10 @@ export const Update = () => {
                   <input className="update-input w-100" type="text" placeholder="Update:"/>
                 </div>
                 <div className="col-7 mt-4 ">
-                  <button className="btn-add w-100">Update</button>
+                  <button className="btn-update-delete w-100">Update</button>
                 </div>
                 <div className="col-7 mt-4 ">
-                  <button className="btn-add w-100">Delete</button>
+                  <button className="btn-update-delete w-100">Delete</button>
                 </div>
               </div>
             </div>
