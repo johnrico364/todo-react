@@ -26,14 +26,8 @@ export const Add = () => {
   };
 
   const handleAddtodo = async () => {
-    const todo = {
-      title: title,
-      createdBy: userData?.account_id,
-    };
 
-    const status = await adddTodoAPI(todo);
-
-    status && navigate("/home");
+    console.log("hello")
   };
 
   return (

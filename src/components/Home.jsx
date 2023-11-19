@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { userData, updateId, setUpdateId, setUpdateTitle } =
+  const { userData } =
     useContext(AppContext);
 
   const getTodoAPI = async () => {
@@ -15,7 +15,6 @@ export const Home = () => {
       const data = await axios.get(
         `https://apex.oracle.com/pls/apex/jao_workspace/todo/todos/${userData?.account_id}`
       );
-      return data.data.items;
     } catch (err) {
       console.log(err);
       return err;
@@ -36,20 +35,13 @@ export const Home = () => {
   const data = useQuery({
     queryKey: ["todos"],
     queryFn: getTodoAPI,
-    refetchInterval: 1000,
   });
 
   const toUpdate = (todoId, title) => {
-    setUpdateId(todoId);
-    setUpdateTitle(title);
     navigate("/update");
   };
   const handleStatus = async (status, id) => {
     console.log(status);
-    const data = {
-      status: status == true ? false : true,
-    };
-    await statusAPI(data, id);
   };
 
   return (
