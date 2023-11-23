@@ -26,8 +26,14 @@ export const Add = () => {
   };
 
   const handleAddtodo = async () => {
+    const todo = {
+      title: title,
+      createdBy: userData?.account_id,
+    };
 
-    console.log("hello")
+    const status = await adddTodoAPI(todo);
+
+    status && navigate("/home");
   };
 
   return (
@@ -36,8 +42,6 @@ export const Add = () => {
         <div className="col-5 text-white ">
           <div className="add-container text-center ">
             <div className="add-task-container overflow-auto">
-              <p>ID: {userData.account_id}</p>
-
               <div className="row justify-content-center ">
                 <div className="col-7 mt-4 ">
                   <p className="text-danger fw-bold">{response}</p>

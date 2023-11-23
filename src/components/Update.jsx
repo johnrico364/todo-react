@@ -19,7 +19,7 @@ export const Update = () => {
       console.log(err);
     }
   };
-  const deleteTask = async () => {
+  const deleteTask = async () => { 
     try {
       axios.delete(
         `https://apex.oracle.com/pls/apex/jao_workspace/todo/todo/${updateId}`
@@ -30,7 +30,7 @@ export const Update = () => {
     }
   };
 
-  const handleUpdate = async () => {
+  const handleUpdate = async () => { //sa update btn
     const data = {
       title: updateTitle,
     };
@@ -39,7 +39,7 @@ export const Update = () => {
 
     status && navigate("/home");
   };
-  const handleDelete = async () => {
+  const handleDelete = async () => {  //sa delete btn 
     const status = await deleteTask();
 
     status && navigate("/home");
@@ -79,7 +79,6 @@ export const Update = () => {
                   </button>
                 </div>
               </div>
-              {updateId} :{updateTitle}
             </div>
             <i
               onClick={() => navigate("/home")}

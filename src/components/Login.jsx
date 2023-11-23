@@ -6,7 +6,7 @@ import axios from "axios";
 
 export const Login = () => {
   let navigate = useNavigate();
-  const { userData, setUserData } = useContext(AppContext);
+  const { userData, setUserData } = useContext(AppContext); //global variable para ma access sa tanan file
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +35,6 @@ export const Login = () => {
     };
 
     const status = await loginAPI(data);
-    console.log(status);
     status && navigate("/home"); //meaning ani ig true ang status kay moadto siya sa /home
   };
 
