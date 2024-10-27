@@ -13,7 +13,7 @@ export const Home = () => {
   const getTodoAPI = async () => {
     try {
       const data = await axios.get(
-        `https://apex.oracle.com/pls/apex/jao_workspace/todo/todos/${userData?.account_id}`
+        `api_link_here`
       );
       return data.data.items;
     } catch (err) {
@@ -24,7 +24,7 @@ export const Home = () => {
   const statusAPI = async (newStatus, id) => {
     try {
       await axios.put(
-        `https://apex.oracle.com/pls/apex/jao_workspace/todo/todo/status/${id}`,
+        `api_link_here`,
         newStatus
       );
       return true;

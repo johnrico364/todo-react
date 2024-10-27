@@ -6,36 +6,32 @@ import axios from "axios";
 
 export const Login = () => {
   let navigate = useNavigate();
-  const { userData, setUserData } = useContext(AppContext); //global variable para ma access sa tanan file
+  const { userData, setUserData } = useContext(AppContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [response, setResponse] = useState(""); //All the exception from the api go here
+  const [response, setResponse] = useState(""); 
 
   const loginAPI = async (getPost) => {
     try {
-      const data = await axios.post(
-        "https://apex.oracle.com/pls/apex/jao_workspace/account/account/login",
-        getPost
-      );
-      setUserData(data.data); //ari ipasa ang mga ge kuha nga data sa table
+      const data = await axios.post("api_link_here", getPost);
+      setUserData(data.data);
       return true;
     } catch (err) {
-      setResponse(err.response.data.message); //mao ning ang message nga gikan sa API
+      setResponse(err.response.data.message);
       return;
     }
   };
 
   const handleLogin = async () => {
     const data = {
-      //mao ni unsaon pag kuha sa data sa table
       email: email,
       password: password,
     };
 
     const status = await loginAPI(data);
-    status && navigate("/home"); //meaning ani ig true ang status kay moadto siya sa /home
+    status && navigate("/home");
   };
 
   return (

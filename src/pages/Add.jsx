@@ -15,7 +15,7 @@ export const Add = () => {
   const adddTodoAPI = async (newTodo) => {
     try {
       await axios.post(
-        "https://apex.oracle.com/pls/apex/jao_workspace/todo/todo",
+        "api_link_here",
         newTodo
       );
       return true;

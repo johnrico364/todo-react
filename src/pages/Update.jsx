@@ -10,27 +10,23 @@ export const Update = () => {
 
   const updateTask = async (updatePost) => {
     try {
-      await axios.put(
-        `https://apex.oracle.com/pls/apex/jao_workspace/todo/todo/${updateId}`,
-        updatePost
-      );
+      await axios.put(`api_link_here`, updatePost);
       return true;
     } catch (err) {
       console.log(err);
     }
   };
-  const deleteTask = async () => { 
+  const deleteTask = async () => {
     try {
-      axios.delete(
-        `https://apex.oracle.com/pls/apex/jao_workspace/todo/todo/${updateId}`
-      );
+      axios.delete(`api_link_here`);
       return true;
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleUpdate = async () => { //sa update btn
+  const handleUpdate = async () => {
+    //sa update btn
     const data = {
       title: updateTitle,
     };
@@ -39,7 +35,8 @@ export const Update = () => {
 
     status && navigate("/home");
   };
-  const handleDelete = async () => {  //sa delete btn 
+  const handleDelete = async () => {
+    //sa delete btn
     const status = await deleteTask();
 
     status && navigate("/home");

@@ -11,31 +11,30 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [response, setResponse] = useState(""); //All the exception from the api go here
+  const [response, setResponse] = useState("");
 
   const signupAPI = async (newPost) => {
     try {
       await axios.post(
-        "https://apex.oracle.com/pls/apex/jao_workspace/account/account",
+        "api_link_here",
         newPost
       );
       return true;
     } catch (err) {
-      setResponse(err.response.data.message); //mao ning ang message nga gikan sa API
+      setResponse(err.response.data.message);
       return;
     }
   };
 
   const signupFn = async () => {
     const data = {
-      //mao ni unsaon pag post
       email: email,
       password: password,
     };
 
     const status = await signupAPI(data);
 
-    status && navigate("/"); //meaning ani ig true ang status kay moadto siya sa default /
+    status && navigate("/");
   };
 
   return (
